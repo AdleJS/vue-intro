@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heroes</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Characters of Naruto</h1>
+      <p v-if="!characters">No characters to display</p>
+      <div v-else>
+        <div v-for="character in characters">
+          <h2>{{character.name}}</h2>
+          <h4>Village: {{character.village}}</h4>
+          <h4>Rank: {{character.rank}}</h4>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+      app = createApp({
+        data() {
+          return {
+            characters: [
+              {
+                name: "Naruto",
+                village: "Leaf",
+                rank: "Hokage",
+              },
+              {
+                name: "Orochimaru",
+                village: "Sound",
+                rank: "Sennin",
+              },
+              {
+                name: "Gaara",
+                village: "Sand",
+                rank: "Hokage",
+              },
+            ],
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
