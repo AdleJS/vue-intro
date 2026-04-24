@@ -1,11 +1,13 @@
 <script lang="ts">
 import Counter from './components/Counter.vue'
 import UserCard from './components/UserCard.vue'
+import BaseButton from './components/BaseButton.vue'
 
 export default {
   components: {
     Counter,
     UserCard,
+    BaseButton,
   },
   data() {
     return {
@@ -30,6 +32,7 @@ export default {
 <template>
   <h1>Hello Frontend Masters!</h1>
   <div id="app">
+    <BaseButton> Arrow Left - Hi </BaseButton>
     <UserCard :user="userData" @change-name="changeName" />
     <Counter />
     <div>
