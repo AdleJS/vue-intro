@@ -1,15 +1,28 @@
 <script lang="ts">
 import Counter from './components/Counter.vue'
+import UserCard from './components/UserCard.vue'
 
 export default {
   components: {
     Counter,
+    UserCard,
   },
   data() {
     return {
       message: 'Hello it works',
       listOfNumbers: [1, 2, 3, 4, 5],
+      userData: {
+        name: 'Ben',
+        preferredFramework: 'vue',
+        favoriteFood: 'sushi',
+        favoriteNumbers: [5, 6, 7],
+      },
     }
+  },
+  methods: {
+    changeName() {
+      this.userData.name = 'Charlie'
+    },
   },
 }
 </script>
@@ -17,6 +30,7 @@ export default {
 <template>
   <h1>Hello Frontend Masters!</h1>
   <div id="app">
+    <UserCard :user="userData" @change-name="changeName" />
     <Counter />
     <div>
       <p v-if="message.length % 2 === 0">Even: {{ message.toUpperCase() }}</p>

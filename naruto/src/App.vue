@@ -1,5 +1,14 @@
 <script>
+import Characters from '../components/Characters.vue'
+import FavoriteCharacters from '../components/FavoriteCharacters.vue'
+import Statistics from '../components/Statistics.vue'
+
 export default {
+  components: {
+    Characters,
+    FavoriteCharacters,
+    Statistics,
+  },
   data() {
     return {
       characterName: '',
@@ -52,29 +61,9 @@ export default {
 </script>
 
 <template>
-  <h1>Characters of Naruto</h1>
-  <p v-if="!characters">No characters to display</p>
-  <div v-else>
-    <div v-for="character in characters" :key="`${character} - ${Math.random()}`">
-      <h2>{{ character.name }}</h2>
-      <h4>Village: {{ character.village }}</h4>
-      <h4>Rank: {{ character.rank }}</h4>
-      <button @click="addToFavorites(character)">Add to favorites</button>
-    </div>
-  </div>
-  <hr />
-  <h1>Statistics</h1>
-  <p>Total amount: {{ totalAmount }}</p>
-  <h1>Favorite characters</h1>
-  <p v-if="!favorites">No characters to display</p>
-  <div v-else>
-    <div v-for="character in favorites" :key="`${character} - ${Math.random()}`">
-      <h2>{{ character.name }}</h2>
-      <h4>Village: {{ character.village }}</h4>
-      <h4>Rank: {{ character.rank }}</h4>
-    </div>
-  </div>
-  <hr />
+  <Characters :characters="characters" @add-favorite="addToFavorites" />
+  <Statistics :totalAmount="totalAmount" />
+  <FavoriteCharacters :favorites="favorites" />
   <div>
     <h1>Create Character</h1>
     <label for="character-name">Character Name:</label>
