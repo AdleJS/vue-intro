@@ -1,15 +1,7 @@
-<script>
-export default {
-  async setup() {
-    const users = await fetch('https://jsonplaceholder.typicode.com/users').then((response) =>
-      response.json(),
-    )
-
-    return {
-      users,
-    }
-  },
-}
+<script setup>
+const users = await fetch('https://jsonplaceholder.typicode.com/users').then((response) =>
+  response.json(),
+)
 </script>
 
 <template>
