@@ -1,11 +1,15 @@
-<script></script>
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+</script>
 
 <template>
   <main>
     <h1>Login</h1>
     <label for="email">Email</label>
     <input type="email" />
-    <button>Continue with email</button>
+    <button @click="router.push('/users')">Continue with email</button>
   </main>
 </template>
 
