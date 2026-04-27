@@ -1,11 +1,13 @@
 <script setup>
-import { users } from '@/composables/useUserStore'
+import { useUserStore } from '@/stores/userStore'
+
+const store = useUserStore()
 </script>
 
 <template>
   <main>
     <h1>Users</h1>
-    <div v-for="user in users" :key="user.id" class="user-card">
+    <div v-for="user in store.users" :key="user.id" class="user-card">
       <h3>{{ user.name }}</h3>
       <p>Username: {{ user.username }}</p>
       <p>Email: {{ user.email }}</p>
